@@ -1,0 +1,73 @@
+{
+    "timestamp": "2025-08-05 13:00:59",
+    "php_version": "8.4.11",
+    "opcache_enabled": false,
+    "memory_limit": "512M",
+    "max_execution_time": "0",
+    "results": {
+        "CPU Intensive Operations": {
+            "execution_time_ms": 17.487,
+            "avg_time_per_iteration_ms": 0.0002,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 2,
+            "iterations": 100000
+        },
+        "Memory Intensive Operations": {
+            "execution_time_ms": 23545.927,
+            "avg_time_per_iteration_ms": 2.3546,
+            "memory_used_bytes": 50343936,
+            "memory_used_mb": 48.0117,
+            "peak_memory_mb": 86.0039,
+            "iterations": 10000
+        },
+        "String Operations": {
+            "execution_time_ms": 82.0148,
+            "avg_time_per_iteration_ms": 0.0016,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 86.0039,
+            "iterations": 50000
+        },
+        "Array Operations": {
+            "execution_time_ms": 3491.3201,
+            "avg_time_per_iteration_ms": 0.3491,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 86.0039,
+            "iterations": 10000
+        },
+        "Object Operations": {
+            "execution_time_ms": 146.564,
+            "avg_time_per_iteration_ms": 0.0073,
+            "memory_used_bytes": 71528448,
+            "memory_used_mb": 68.2148,
+            "peak_memory_mb": 98.2148,
+            "iterations": 20000
+        },
+        "File I\/O Operations": {
+            "execution_time_ms": 73.194,
+            "avg_time_per_iteration_ms": 0.0732,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 98.2148,
+            "iterations": 1000
+        },
+        "Function Call Overhead": {
+            "execution_time_ms": 54.286,
+            "avg_time_per_iteration_ms": 0.0005,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 98.2148,
+            "iterations": 100000
+        },
+        "Class Operations": {
+            "execution_time_ms": 24.8501,
+            "avg_time_per_iteration_ms": 0.0025,
+            "memory_used_bytes": 0,
+            "memory_used_mb": 0,
+            "peak_memory_mb": 98.2148,
+            "iterations": 10000
+        }
+    }
+}

@@ -1,0 +1,36 @@
+# Dockerfile for PHP 8.4 with OPcache enabled
+FROM php:8.4-cli
+
+# Install required extensions including OPcache
+RUN docker-php-ext-install -j$(nproc) \
+    opcache \
+    bcmath
+
+# Configure OPcache for optimal performance
+RUN echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.enable_cli=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.memory_consumption=256" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.interned_strings_buffer=8" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.max_accelerated_files=10000" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.revalidate_freq=2" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.fast_shutdown=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.save_comments=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.load_comments=1" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN echo "opcache.validate_timestamps=1" >> /usr/local/etc/php/conf.d/opcache.ini
+
+# Set PHP configuration for benchmarking
+RUN echo "memory_limit=512M" >> /usr/local/etc/php/conf.d/benchmark.ini
+RUN echo "max_execution_time=300" >> /usr/local/etc/php/conf.d/benchmark.ini
+RUN echo "display_errors=On" >> /usr/local/etc/php/conf.d/benchmark.ini
+
+# Create working directory
+WORKDIR /app
+
+# Copy the benchmark script
+COPY bench_obfuscate.php /app/
+
+# Create output directory
+RUN mkdir -p /app/output
+
+# Warm up OPcache by running a quick syntax check first, then run the benchmark
+CMD ["sh", "-c", "php -l bench_obfuscate.php > /dev/null && php bench_obfuscate.php 2>&1 | tee /app/output/benchmark_with_opcache_$(date +%Y%m%d_%H%M%S).log && cp benchmark_results_*.json /app/output/ 2>/dev/null || true"]

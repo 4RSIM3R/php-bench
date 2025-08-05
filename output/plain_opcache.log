@@ -1,0 +1,34 @@
+=== PHP Performance Benchmark Suite ===
+PHP Version: 8.4.11
+OpCache Enabled: Yes
+Memory Limit: 512M
+Max Execution Time: 0s
+
+Starting comprehensive benchmark suite...
+
+Running: CPU Intensive Operations... Done (23.329973220825ms, 0MB)
+Running: Memory Intensive Operations... Done (22232.107162476ms, 48.0117MB)
+Running: String Operations... Done (64.50891494751ms, 0MB)
+Running: Array Operations... Done (3139.6379470825ms, 0MB)
+Running: Object Operations... Done (135.9338760376ms, 68.4805MB)
+Running: File I/O Operations... Done (60.578107833862ms, 0MB)
+Running: Function Call Overhead... Done (33.323049545288ms, 0MB)
+Running: Class Operations... Done (7.8918933868408ms, 0MB)
+
+=== BENCHMARK RESULTS ===
+--------------------------------------------------------------------------------
+Test Name                      Total Time (ms)   Avg/Iter (ms)     Memory (MB)  Peak (MB)
+--------------------------------------------------------------------------------
+CPU Intensive Operations               23.3300        0.000200          0.0000     2.0000
+Memory Intensive Operations         22232.1072        2.223200         48.0117    84.0039
+String Operations                      64.5089        0.001300          0.0000    84.0039
+Array Operations                     3139.6379        0.314000          0.0000    84.0039
+Object Operations                     135.9339        0.006800         68.4805    98.4805
+File I/O Operations                    60.5781        0.060600          0.0000    98.4805
+Function Call Overhead                 33.3230        0.000300          0.0000    98.4805
+Class Operations                        7.8919        0.000800          0.0000    98.4805
+--------------------------------------------------------------------------------
+TOTAL                               25697.3109               -        116.4922    98.4805
+================================================================================
+
+Results exported to: benchmark_results_2025-08-05_12-56-04.json
